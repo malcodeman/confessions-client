@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
+
+import Post from "../components/Post";
 
 import { getPosts } from "../actions/postsActions";
+
+const Container = styled.div`
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 40px 20px;
+`;
 
 class Posts extends Component {
   componentDidMount = () => {
@@ -9,7 +18,16 @@ class Posts extends Component {
     getPosts();
   };
   render() {
-    return <div>Posts</div>;
+    const { posts, loading } = this.props;
+    return (
+      <Container>
+        {loading ? <p>Loading</p> : null}
+        {!loading && posts.length === 0 ? <p>No posts</p> : null}
+        {posts.map(post => (
+          <Post key={post._id} body={post.body} date={post.date} />
+        ))}
+      </Container>
+    );
   }
 }
 

@@ -5,7 +5,7 @@ import {
 } from "../actions/postsActionTypes.js";
 
 const initialState = {
-  posts: null,
+  posts: [],
   loading: true,
   error: true
 };

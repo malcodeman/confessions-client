@@ -30,7 +30,7 @@ class Homepage extends Component {
     return (
       <React.Fragment>
         <Header />
-        <Main> {this.renderRoutes(routes)}</Main>
+        <Main>{this.renderRoutes(routes)}</Main>
       </React.Fragment>
     );
   }

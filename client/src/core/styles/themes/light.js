@@ -5,6 +5,6 @@ export default {
   black: "#000",
   white: "#fff",
   primary: "rgba(0, 0, 0, 0.8)",
-  secondary: "#ccc",
+  secondary: "rgba(0, 0, 0, 0.6)",
   borderRadius: "3px"
 };

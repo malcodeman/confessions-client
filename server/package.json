@@ -1,0 +1,28 @@
+{
+  "name": "confessio-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon  --exec babel-node  src/index.js",
+    "build": "babel src -d build",
+    "serve": "node build/index.js",
+    "postinstall": "babel src -d build"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.9"
+  },
+  "engines": {
+    "node": "8.11.1"
+  }
+}

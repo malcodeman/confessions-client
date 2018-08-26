@@ -9,6 +9,7 @@ import { createPost } from "../actions/postsActions";
 const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
+  padding: 0 ${props => props.theme.padding};
 `;
 
 const Input = styled(Field)`

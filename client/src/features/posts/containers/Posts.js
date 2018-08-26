@@ -10,7 +10,7 @@ import { getPosts } from "../actions/postsActions";
 const Container = styled.div`
   max-width: 512px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px ${props => props.theme.padding};
 `;
 
 const StyledPosts = styled.div`

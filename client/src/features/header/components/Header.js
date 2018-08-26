@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   position: fixed;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
-  background-color: ${props => props.theme.background};
+  background-color: ${props => props.theme.headerBackground};
 `;
 
 const Nav = styled.nav`

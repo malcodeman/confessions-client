@@ -7,6 +7,8 @@ import Header from "../../header/components/Header";
 
 const Main = styled.main`
   margin-top: 64px;
+  min-height: 100vh;
+  background-color: ${props => props.theme.background};
 `;
 
 class Homepage extends Component {

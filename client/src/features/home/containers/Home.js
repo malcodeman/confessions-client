@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import { connect } from "react-redux";
 
 import routes from "../../../core/routes/routes";
 import Header from "../../header/components/Header";

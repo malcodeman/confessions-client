@@ -1,13 +1,14 @@
 import {
   GET_POSTS_REQUEST,
   GET_POSTS_SUCCESS,
-  GET_POSTS_FAILURE
+  GET_POSTS_FAILURE,
+  CREATE_POST_SUCCESS
 } from "../actions/postsActionTypes.js";
 
 const initialState = {
   posts: [],
-  loading: true,
-  error: true
+  loading: false,
+  error: false
 };
 
 export default (state = initialState, action) => {
@@ -15,7 +16,9 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case GET_POSTS_REQUEST:
       return {
-        ...state
+        ...state,
+        loading: true,
+        error: false
       };
     case GET_POSTS_SUCCESS:
       return {
@@ -27,8 +30,13 @@ export default (state = initialState, action) => {
     case GET_POSTS_FAILURE:
       return {
         ...state,
-        error: true,
-        loading: false
+        loading: false,
+        error: true
+      };
+    case CREATE_POST_SUCCESS:
+      return {
+        ...state,
+        posts: [action.payload, ...state.posts]
       };
     default:
       return state;

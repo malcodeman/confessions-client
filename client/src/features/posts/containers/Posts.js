@@ -3,13 +3,18 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import Post from "../components/Post";
+import PostNewForm from "./PostNewForm";
 
 import { getPosts } from "../actions/postsActions";
 
 const Container = styled.div`
-  max-width: 992px;
+  max-width: 512px;
   margin: 0 auto;
   padding: 40px 20px;
+`;
+
+const StyledPosts = styled.div`
+  margin-top: 20px;
 `;
 
 class Posts extends Component {
@@ -21,11 +26,14 @@ class Posts extends Component {
     const { posts, loading } = this.props;
     return (
       <Container>
-        {loading ? <p>Loading</p> : null}
-        {!loading && posts.length === 0 ? <p>No posts</p> : null}
-        {posts.map(post => (
-          <Post key={post._id} body={post.body} date={post.date} />
-        ))}
+        <PostNewForm />
+        <StyledPosts>
+          {loading ? <p>Loading</p> : null}
+          {!loading && posts.length === 0 ? <p>No posts</p> : null}
+          {posts.map(post => (
+            <Post key={post._id} body={post.body} date={post.date} />
+          ))}
+        </StyledPosts>
       </Container>
     );
   }

@@ -1,4 +1,8 @@
-import { GET_POSTS_REQUEST, CREATE_POST_REQUEST } from "./postsActionTypes.js";
+import {
+  GET_POSTS_REQUEST,
+  CREATE_POST_REQUEST,
+  INITIALIZE_WEB_SOCKETS_CHANNEL
+} from "./postsActionTypes.js";
 
 export const getPosts = () => {
   return {
@@ -11,5 +15,11 @@ export const createPost = (payload, meta) => {
     payload,
     meta,
     type: CREATE_POST_REQUEST
+  };
+};
+
+export const initializeWsChannel = () => {
+  return {
+    type: INITIALIZE_WEB_SOCKETS_CHANNEL
   };
 };

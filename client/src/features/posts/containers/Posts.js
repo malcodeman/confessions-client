@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Post from "../components/Post";
 import PostNewForm from "./PostNewForm";
 
-import { getPosts } from "../actions/postsActions";
+import { getPosts, initializeWsChannel } from "../actions/postsActions";
 
 const Container = styled.div`
   max-width: 512px;
@@ -19,8 +19,9 @@ const StyledPosts = styled.div`
 
 class Posts extends Component {
   componentDidMount = () => {
-    const { getPosts } = this.props;
+    const { getPosts, initializeWsChannel } = this.props;
     getPosts();
+    initializeWsChannel();
   };
   render() {
     const { posts, loading } = this.props;
@@ -49,6 +50,7 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    getPosts
+    getPosts,
+    initializeWsChannel
   }
 )(Posts);

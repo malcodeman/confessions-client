@@ -56,7 +56,7 @@ class FormikForm extends Component {
           type="text"
           name="body"
           placeholder="Your confession here"
-          maxlength="280"
+          maxLength="280"
         />
         {touched.body && errors.body && <Error>{errors.body}</Error>}
         <Button disabled={isSubmitting || body.length === 0}>Post</Button>

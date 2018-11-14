@@ -4,17 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon  --exec babel-node  src/index.js",
-    "build": "babel src -d build",
-    "serve": "node build/index.js",
-    "postinstall": "babel src -d build"
+    "start": "nodemon --require dotenv/config -r esm src/$npm_package_main"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "dotenv": "^6.1.0",
+    "esm": "^3.0.84",
     "nodemon": "^1.17.3"
   },
   "dependencies": {

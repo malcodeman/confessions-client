@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-import { Schema } from "mongoose";
 
-const PostSchema = new Schema({
+const PostSchema = new mongoose.Schema({
   body: {
     type: String,
     require: true

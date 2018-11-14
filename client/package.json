@@ -5,18 +5,17 @@
   "dependencies": {
     "axios": "^0.18.0",
     "date-fns": "^1.29.0",
-    "formik": "^0.11.11",
-    "history": "^4.7.2",
+    "formik": "^1.3.2",
     "react": "16",
     "react-dom": "16",
     "react-popper": "^1.0.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4",
+    "react-scripts": "2.1.1",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
-    "styled-components": "^3.2.6",
-    "yup": "^0.24.1"
+    "styled-components": "^4.1.1",
+    "yup": "^0.26.6"
   },
   "scripts": {
     "start": "react-scripts start",

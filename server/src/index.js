@@ -15,7 +15,11 @@ const wss = new WebSocket.Server({ server });
 
 wss.on("connection", ws => {
   ws.on("message", message => {
-    ws.send(JSON.stringify("Hell client!"), message);
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify(message));
+      }
+    });
   });
 });
 

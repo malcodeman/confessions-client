@@ -2,7 +2,6 @@ import {
   GET_POSTS_REQUEST,
   GET_POSTS_SUCCESS,
   GET_POSTS_FAILURE,
-  CREATE_POST_SUCCESS,
   WEBSOCKET_MESSAGE_RECEIVED
 } from "../actions/postsActionTypes.js";
 
@@ -34,15 +33,10 @@ export default (state = initialState, action) => {
         loading: false,
         error: true
       };
-    case CREATE_POST_SUCCESS:
-      return {
-        ...state,
-        posts: [action.payload, ...state.posts]
-      };
     case WEBSOCKET_MESSAGE_RECEIVED:
       return {
-        ...state
-        //posts: [action.payload, ...state.posts]
+        ...state,
+        posts: [JSON.parse(action.payload), ...state.posts]
       };
     default:
       return state;

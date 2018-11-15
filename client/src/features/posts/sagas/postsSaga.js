@@ -36,6 +36,12 @@ function* createPost(action) {
     const newPost = action.payload;
     const updated = yield call(createPostApi, newPost);
     yield put({ type: CREATE_POST_SUCCESS, payload: updated.data });
+    const wsUrl = "ws://localhost:4000";
+    const socket = new WebSocket(wsUrl);
+    socket.onopen = () => {
+      socket.send(JSON.stringify(updated.data));
+      socket.close();
+    };
   } catch (error) {
     yield put({ type: CREATE_POST_FAILURE, error });
   } finally {
@@ -52,10 +58,6 @@ function createSocketChannel(socket) {
         type: WEBSOCKET_MESSAGE_RECEIVED,
         payload: JSON.parse(message.data)
       });
-    };
-    socket.onopen = () => {
-      console.log("WebSocket is open now.");
-      socket.send("Hello server!");
     };
     const unsubscribe = () => {
       socket.close();

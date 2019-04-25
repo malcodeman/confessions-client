@@ -24,8 +24,9 @@ const Time = styled.span`
   color: ${props => props.theme.secondary};
 `;
 
-const Post = props => {
+function Post(props) {
   const { body, date } = props;
+
   return (
     <StyledPost>
       <Main>
@@ -34,6 +35,6 @@ const Post = props => {
       <Time>{format(date, "hh:mm A - D MMM YYYY")}</Time>
     </StyledPost>
   );
-};
+}
 
 export default Post;

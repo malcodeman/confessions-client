@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
@@ -46,33 +46,32 @@ const Button = styled.button`
   }
 `;
 
-class FormikForm extends Component {
-  render() {
-    const { errors, touched, isSubmitting } = this.props;
-    const { body } = this.props.values;
-    return (
-      <StyledForm>
-        <Input
-          type="text"
-          name="body"
-          placeholder="Your confession here"
-          maxLength="280"
-        />
-        {touched.body && errors.body && <Error>{errors.body}</Error>}
-        <Button disabled={isSubmitting || body.length === 0}>Post</Button>
-      </StyledForm>
-    );
-  }
+function FormikForm(props) {
+  const { errors, touched, isSubmitting } = props;
+  const { body } = props.values;
+
+  return (
+    <StyledForm>
+      <Input
+        type="text"
+        name="body"
+        placeholder="Your confession here"
+        maxLength="280"
+      />
+      {touched.body && errors.body && <Error>{errors.body}</Error>}
+      <Button disabled={isSubmitting || body.length === 0}>Post</Button>
+    </StyledForm>
+  );
 }
 
 const PostNewForm = withFormik({
-  mapPropsToValues: props => ({
-    body: props.body || ""
-  }),
   validationSchema: Yup.object().shape({
     body: Yup.string()
       .required("Can't be empty")
       .max(280, "Max 280 characters")
+  }),
+  mapPropsToValues: props => ({
+    body: props.body || ""
   }),
   handleSubmit(payload, bag) {
     bag.props.createPost(payload, {

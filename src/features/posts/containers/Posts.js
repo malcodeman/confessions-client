@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import Post from "../components/Post";
-import PostNewForm from "./PostNewForm";
+import PostNewForm from "../components/PostNewForm";
 
-import { getPosts, initializeWsChannel } from "../actions/postsActions";
+import { getPosts } from "../actions/postsActions";
 
 const Container = styled.div`
   max-width: 512px;
@@ -19,12 +19,14 @@ const StyledPosts = styled.div`
 
 class Posts extends Component {
   componentDidMount = () => {
-    const { getPosts, initializeWsChannel } = this.props;
+    const { getPosts } = this.props;
+
     getPosts();
-    initializeWsChannel();
   };
+
   render() {
     const { posts, loading } = this.props;
+
     return (
       <Container>
         <PostNewForm />
@@ -50,7 +52,6 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    getPosts,
-    initializeWsChannel
+    getPosts
   }
 )(Posts);

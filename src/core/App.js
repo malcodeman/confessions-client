@@ -1,29 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from "../features/home/containers/Home";
+import store from "./state/store";
+import lightTheme from "./styles/themes/light";
+import Posts from "../features/posts/containers/Posts";
 
-import lightTheme from "../core/styles/themes/light";
-import darkTheme from "../core/styles/themes/dark";
-
-class App extends Component {
-  getTheme = theme => {
-    switch (theme) {
-      case "light":
-        return lightTheme;
-      case "dark":
-        return darkTheme;
-      default:
-        return lightTheme;
-    }
-  };
-  render() {
-    return (
-      <ThemeProvider theme={this.getTheme("light")}>
-        <Home />
+function App() {
+  return (
+    <Provider store={store}>
+      <ThemeProvider theme={lightTheme}>
+        <Router>
+          <Route exact path="/" component={Posts} />
+        </Router>
       </ThemeProvider>
-    );
-  }
+    </Provider>
+  );
 }
 
 export default App;

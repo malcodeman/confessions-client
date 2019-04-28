@@ -4,13 +4,13 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import store from "./state/store";
-import lightTheme from "./styles/themes/light";
+import darkTheme from "./styles/themes/dark";
 import Posts from "../features/posts/containers/Posts";
 
 function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={darkTheme}>
         <Router>
           <Route exact path="/" component={Posts} />
         </Router>

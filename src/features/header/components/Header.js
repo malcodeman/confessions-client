@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 const StyledHeader = styled.header`
   top: 0;
   position: fixed;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
-  background-color: ${props => props.theme.headerBackground};
+  background-color: ${props => props.theme.backgroundSecondary};
 `;
 
 const Nav = styled.nav`
@@ -17,14 +16,23 @@ const Nav = styled.nav`
   max-width: 992px;
   margin: 0 auto;
   width: 100%;
-  height: 64px;
+  height: 48px;
   padding: 0 20px;
 `;
 
 const StyledLink = styled(Link)`
   font-size: 0.8rem;
-  color: ${props => props.theme.primary};
   letter-spacing: 1px;
+  color: ${props => props.theme.primary};
+`;
+
+const Submit = styled(Link)`
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  cursor: pointer;
+  color: #fff;
+  background-color: ${props => props.theme.brand};
+  border-radius: ${props => props.theme.borderRadius};
 `;
 
 const Header = () => {
@@ -32,6 +40,7 @@ const Header = () => {
     <StyledHeader>
       <Nav>
         <StyledLink to="/">Confessio</StyledLink>
+        <Submit to="/submit">Post</Submit>
       </Nav>
     </StyledHeader>
   );

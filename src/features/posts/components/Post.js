@@ -5,8 +5,10 @@ import { distanceInWordsToNow } from "date-fns";
 const StyledPost = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
   padding: 10px;
+  :not(:last-child) {
+    margin-bottom: 20px;
+  }
   background-color: ${props => props.theme.backgroundSecondary};
   border: 1px solid ${props => props.theme.borderColor};
   border-radius: ${props => props.theme.borderRadius};

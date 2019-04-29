@@ -8,7 +8,8 @@ import { getPosts } from "../actions/postsActions";
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  background: ${props => props.theme.backgroundPrimary};
+  padding: 64px 20px;
+  background-color: ${props => props.theme.backgroundPrimary};
 `;
 
 const Container = styled.div`

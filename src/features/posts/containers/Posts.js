@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
+import PostLoading from "../components/PostLoading";
 import Post from "../components/Post";
 
 import { getPosts } from "../actions/postsActions";
@@ -15,6 +16,12 @@ const Wrapper = styled.div`
 const Container = styled.div`
   max-width: 512px;
   margin: 0 auto;
+`;
+
+const PostEmpty = styled.p`
+  font-size: 0.8rem;
+  text-align: center;
+  color: ${props => props.theme.primary};
 `;
 
 class Posts extends Component {
@@ -31,8 +38,10 @@ class Posts extends Component {
       <Wrapper>
         <Container>
           <>
-            {loading ? <p>Loading</p> : null}
-            {!loading && posts.length === 0 ? <p>No posts</p> : null}
+            {loading && posts.length === 0 && <PostLoading />}
+            {!loading && posts.length === 0 && (
+              <PostEmpty>No posts yet</PostEmpty>
+            )}
             {posts.map(post => (
               <Post key={post._id} body={post.body} date={post.date} />
             ))}

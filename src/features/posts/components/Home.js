@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Tile = styled.div`
   padding: 10px;
+  margin-bottom: 20px;
   border-radius: ${props => props.theme.borderRadius};
   border: 1px solid ${props => props.theme.borderColor};
   background-color: ${props => props.theme.backgroundSecondary};

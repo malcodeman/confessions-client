@@ -5,6 +5,7 @@ import styled from "styled-components";
 import PostLoading from "../components/PostLoading";
 import Post from "../components/Post";
 import Home from "../components/Home";
+import Footer from "../components/Footer";
 
 import { getPosts } from "../actions/postsActions";
 
@@ -80,6 +81,7 @@ class Posts extends Component {
           <SidebarContainer>
             <Sidebar>
               <Home />
+              <Footer />
             </Sidebar>
           </SidebarContainer>
         </Container>

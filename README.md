@@ -28,6 +28,7 @@ Api is located [here](https://github.com/malcodeman/confessions-server).
 - Infinite scroll
 - Ads
 - User accounts
+- Admin account
 
 ## License
 

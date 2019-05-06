@@ -29,6 +29,7 @@ Api is located [here](https://github.com/malcodeman/confessions-server).
 - Ads
 - User accounts
 - Admin account
+- Dark mode
 
 ## License
 

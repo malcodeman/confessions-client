@@ -58,9 +58,11 @@ const Sidebar = styled.div`
 
 class Posts extends Component {
   componentDidMount = () => {
-    const { getPosts } = this.props;
+    const { getPosts, posts } = this.props;
 
-    getPosts();
+    if (posts.length === 0) {
+      getPosts();
+    }
   };
 
   render() {

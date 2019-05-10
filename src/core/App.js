@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import store from "./state/store";
 import darkTheme from "./styles/themes/dark";
 import Posts from "../features/posts/containers/Posts";
+import CreatePost from "../features/posts/components/CreatePost";
 import Header from "../features/header/components/Header";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <>
             <Header />
             <Route exact path="/" component={Posts} />
+            <Route exact path="/submit" component={CreatePost} />
           </>
         </Router>
       </ThemeProvider>

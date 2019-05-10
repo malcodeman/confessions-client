@@ -9,62 +9,61 @@ import { createPost } from "../actions/postsActions";
 const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  padding: 0 ${props => props.theme.padding};
 `;
 
 const Input = styled(Field)`
-  color: ${props => props.theme.black};
   height: 36px;
   font-size: 0.8rem;
   padding: 0 4px;
   outline: 0;
-  border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  color: ${props => props.theme.primary};
+  border-radius: ${props => props.theme.borderRadius};
+  border: 1px solid ${props => props.theme.borderColor};
+  background-color: ${props => props.theme.backgroundSecondary};
 `;
 
 const Error = styled.div`
   font-size: 0.8rem;
-  color: #fff;
-  background-color: #b00e23;
   padding: 4px;
   margin: 4px 0;
   align-self: flex-start;
+  color: ${props => props.theme.primary};
+  background-color: ${props => props.theme.error};
+  border-radius: ${props => props.theme.borderRadius};
 `;
 
-const Button = styled.button`
-  color: #fff;
-  border: 0;
-  cursor: pointer;
-  border-radius: 2px;
+const Submit = styled.button`
   font-size: 0.8rem;
-  padding: 10px;
+  padding: 6px 16px;
+  cursor: pointer;
+  border: 0;
+  align-self: flex-end;
+  color: ${props => props.theme.primary};
   background-color: ${props => props.theme.brand};
-  margin-top: 10px;
+  border-radius: ${props => props.theme.borderRadius};
   &:disabled {
-    opacity: 0.2;
+    opacity: 0.6;
     cursor: default;
   }
 `;
 
 function FormikForm(props) {
   const { errors, touched, isSubmitting } = props;
-  const { body } = props.values;
 
   return (
     <StyledForm>
-      <Input
-        type="text"
-        name="body"
-        placeholder="Your confession here"
-        maxLength="280"
-      />
+      <Input type="text" name="body" placeholder="Your confession here" />
       {touched.body && errors.body && <Error>{errors.body}</Error>}
-      <Button disabled={isSubmitting || body.length === 0}>Post</Button>
+      <Submit type="submit" disabled={isSubmitting || errors.body}>
+        Post
+      </Submit>
     </StyledForm>
   );
 }
 
-const PostNewForm = withFormik({
+const CreatePostForm = withFormik({
   validationSchema: Yup.object().shape({
     body: Yup.string()
       .required("Can't be empty")
@@ -84,4 +83,4 @@ const PostNewForm = withFormik({
 export default connect(
   null,
   { createPost }
-)(PostNewForm);
+)(CreatePostForm);

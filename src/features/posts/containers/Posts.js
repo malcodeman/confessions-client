@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import Observer from "@researchgate/react-intersection-observer";
 
 import PostLoading from "../components/PostLoading";
 import Post from "../components/Post";
@@ -58,15 +59,23 @@ const Sidebar = styled.div`
 
 class Posts extends Component {
   componentDidMount = () => {
-    const { getPosts, posts } = this.props;
+    const { getPosts, posts, page, limit } = this.props;
 
     if (posts.length === 0) {
-      getPosts();
+      getPosts({ page, limit });
+    }
+  };
+
+  handleIntersecting = ({ isIntersecting }) => {
+    const { getPosts, page, limit } = this.props;
+
+    if (isIntersecting) {
+      getPosts({ page, limit });
     }
   };
 
   render() {
-    const { posts, loading } = this.props;
+    const { posts, loading, totalItemCount } = this.props;
 
     return (
       <Wrapper>
@@ -79,6 +88,14 @@ class Posts extends Component {
             {posts.map(post => (
               <Post key={post._id} body={post.body} date={post.date} />
             ))}
+            <Observer
+              onChange={this.handleIntersecting}
+              disabled={
+                loading || posts.length === 0 || posts.length === totalItemCount
+              }
+            >
+              <div />
+            </Observer>
           </PostsContainer>
           <SidebarContainer>
             <Sidebar>
@@ -95,7 +112,10 @@ class Posts extends Component {
 const mapStateToProps = state => {
   return {
     posts: state.posts.posts,
-    loading: state.posts.loading
+    loading: state.posts.loading,
+    totalItemCount: state.posts.totalItemCount,
+    page: state.posts.page,
+    limit: state.posts.limit
   };
 };
 

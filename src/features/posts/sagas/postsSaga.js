@@ -10,19 +10,22 @@ import {
   CREATE_POST_SUCCESS
 } from "../actions/postsActionTypes.js";
 
-const getPostsApi = () => {
-  return axios.get(`/posts`);
+const getPostsApi = (page, limit) => {
+  return axios.get(`/posts?page=${page}&limit=${limit}`);
 };
 
 const createPostApi = newPost => {
   return axios.post(`/posts`, newPost);
 };
 
-function* getPosts() {
+function* getPosts(action) {
   try {
-    const data = yield call(getPostsApi);
+    const { page, limit } = action.payload;
+    const data = yield call(getPostsApi, page, limit);
+    const posts = data.data.posts;
+    const pagination = data.data.pagination;
 
-    yield put({ type: GET_POSTS_SUCCESS, payload: data.data });
+    yield put({ type: GET_POSTS_SUCCESS, payload: { posts, pagination } });
   } catch (error) {
     yield put({ type: GET_POSTS_FAILURE, error });
   }

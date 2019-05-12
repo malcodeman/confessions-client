@@ -1,7 +1,8 @@
 import { GET_POSTS_REQUEST, CREATE_POST_REQUEST } from "./postsActionTypes.js";
 
-export const getPosts = () => {
+export const getPosts = payload => {
   return {
+    payload,
     type: GET_POSTS_REQUEST
   };
 };

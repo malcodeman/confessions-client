@@ -7,6 +7,9 @@ import {
 
 const initialState = {
   posts: [],
+  page: 0,
+  limit: 24,
+  totalItemCount: 0,
   loading: false,
   error: false
 };
@@ -23,7 +26,9 @@ export default (state = initialState, action) => {
     case GET_POSTS_SUCCESS:
       return {
         ...state,
-        posts: action.payload,
+        posts: [...state.posts, ...action.payload.posts],
+        page: action.payload.pagination.next.page,
+        totalItemCount: action.payload.pagination.total_item_count,
         loading: false,
         error: false
       };

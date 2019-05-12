@@ -16,12 +16,19 @@ const Input = styled(Field)`
   font-size: 0.8rem;
   padding: 0 4px;
   outline: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 0;
   margin-bottom: 10px;
   color: ${props => props.theme.primary};
   border-radius: ${props => props.theme.borderRadius};
-  border: 1px solid ${props => props.theme.borderColor};
-  background-color: ${props => props.theme.backgroundSecondary};
+  border: 1px solid ${props => props.theme.backgroundPrimary};
+  background-color: ${props => props.theme.backgroundPrimary};
+  :focus {
+    border: 1px solid ${props => props.theme.brand};
+    background-color: ${props => props.theme.backgroundSecondary};
+  }
+  ::placeholder {
+    color: ${props => props.theme.placeholder};
+  }
 `;
 
 const Error = styled.div`
@@ -29,7 +36,7 @@ const Error = styled.div`
   padding: 4px;
   margin: 4px 0;
   align-self: flex-start;
-  color: ${props => props.theme.primary};
+  color: #fff;
   background-color: ${props => props.theme.error};
   border-radius: ${props => props.theme.borderRadius};
 `;
@@ -40,7 +47,7 @@ const Submit = styled.button`
   cursor: pointer;
   border: 0;
   align-self: flex-end;
-  color: ${props => props.theme.primary};
+  color: #fff;
   background-color: ${props => props.theme.brand};
   border-radius: ${props => props.theme.borderRadius};
   &:disabled {
@@ -50,13 +57,16 @@ const Submit = styled.button`
 `;
 
 function FormikForm(props) {
-  const { errors, touched, isSubmitting } = props;
+  const { errors, values, touched, isSubmitting } = props;
 
   return (
     <StyledForm>
       <Input type="text" name="body" placeholder="Your confession here" />
       {touched.body && errors.body && <Error>{errors.body}</Error>}
-      <Submit type="submit" disabled={isSubmitting || errors.body}>
+      <Submit
+        type="submit"
+        disabled={isSubmitting || errors.body || values.body.length === 0}
+      >
         Post
       </Submit>
     </StyledForm>

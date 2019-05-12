@@ -5,7 +5,6 @@ const StyledPost = styled.div`
   padding: 10px;
   margin-bottom: 20px;
   border-radius: ${props => props.theme.borderRadius};
-  border: 1px solid ${props => props.theme.borderColorLoading};
   background-color: ${props => props.theme.backgroundPrimaryLoading};
 `;
 

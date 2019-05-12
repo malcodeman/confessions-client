@@ -1,12 +1,13 @@
 export default {
-  brand: "#ed4956",
-  grey: "rgba(25, 25, 25, 1)",
-  black: "#000",
-  white: "#fff",
-  primary: "rgba(0, 0, 0, 0.8)",
-  secondary: "rgba(0, 0, 0, 0.6)",
-  borderRadius: "3px",
-  background: "#fff",
-  padding: "20px",
-  headerBackground: "rgba(255, 255, 255, 0.8)"
+  brand: "#0095ff",
+  primary: "#14171a",
+  secondary: "#657786",
+  backgroundPrimary: "#e6ecf0",
+  backgroundSecondary: "#fff",
+  backgroundPrimaryLoading: "#fff",
+  backgroundSecondaryLoading: "#e6ecf0",
+  error: "#e0245e",
+  link: "#1B95E0",
+  placeholder: "#9197a3",
+  borderRadius: "3px"
 };

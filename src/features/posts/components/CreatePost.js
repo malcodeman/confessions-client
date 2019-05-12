@@ -32,6 +32,12 @@ const PostsContainer = styled.div`
   }
 `;
 
+const CreatePostWrapper = styled.div`
+  padding: 10px;
+  border-radius: ${props => props.theme.borderRadius};
+  background-color: ${props => props.theme.backgroundSecondary};
+`;
+
 const SidebarContainer = styled.div`
   display: none;
   @media (min-width: 992px) {
@@ -56,8 +62,10 @@ function CreatePost() {
     <Wrapper>
       <Container>
         <PostsContainer>
-          <Header>Create post</Header>
-          <CreatePostForm />
+          <CreatePostWrapper>
+            <Header>Create post</Header>
+            <CreatePostForm />
+          </CreatePostWrapper>
         </PostsContainer>
         <SidebarContainer>
           <Sidebar>

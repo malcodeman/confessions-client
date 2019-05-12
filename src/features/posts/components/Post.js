@@ -9,9 +9,8 @@ const StyledPost = styled.div`
   :not(:last-child) {
     margin-bottom: 20px;
   }
-  background-color: ${props => props.theme.backgroundSecondary};
-  border: 1px solid ${props => props.theme.borderColor};
   border-radius: ${props => props.theme.borderRadius};
+  background-color: ${props => props.theme.backgroundSecondary};
 `;
 
 const Header = styled.header`

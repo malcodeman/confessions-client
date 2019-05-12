@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Tile = styled.footer`
   padding: 10px;
   border-radius: ${props => props.theme.borderRadius};
-  border: 1px solid ${props => props.theme.borderColor};
   background-color: ${props => props.theme.backgroundSecondary};
 `;
 

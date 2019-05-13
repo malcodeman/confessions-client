@@ -6,12 +6,14 @@
 
 A mutually supportive community where deeply emotional things you can't tell people you know can be told.
 
+![Screenshot](docs/images/screenshot.png)
+
 ## Usage
 
 .env.development.local file should look like this:
 
 ```
-REACT_APP_API_URL = http://localhost:400
+REACT_APP_API_URL = http://localhost:4000
 ```
 
 To start the app run:
@@ -25,11 +27,11 @@ Api is located [here](https://github.com/malcodeman/confessions-server).
 
 ## Todos
 
-- Infinite scroll
+- ~~Infinite scroll~~
+- ~~Dark mode~~
 - Ads
 - User accounts
 - Admin account
-- Dark mode
 
 ## License
 

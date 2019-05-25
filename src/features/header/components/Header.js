@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { ReactComponent as homeIcon } from "../assets/icons/home.svg";
 import { ReactComponent as bellIcon } from "../assets/icons/bell.svg";

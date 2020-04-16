@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { distanceInWordsToNow } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 
 const StyledPost = styled.div`
   display: flex;
@@ -9,8 +9,8 @@ const StyledPost = styled.div`
   :not(:last-child) {
     margin-bottom: 20px;
   }
-  border-radius: ${props => props.theme.borderRadius};
-  background-color: ${props => props.theme.backgroundSecondary};
+  border-radius: ${(props) => props.theme.borderRadius};
+  background-color: ${(props) => props.theme.backgroundSecondary};
 `;
 
 const Header = styled.header`
@@ -23,12 +23,12 @@ const Main = styled.main`
 
 const Body = styled.p`
   word-wrap: break-word;
-  color: ${props => props.theme.primary};
+  color: ${(props) => props.theme.primary};
 `;
 
 const Time = styled.span`
   font-size: 0.8rem;
-  color: ${props => props.theme.secondary};
+  color: ${(props) => props.theme.secondary};
 `;
 
 function Post(props) {
@@ -37,7 +37,7 @@ function Post(props) {
   return (
     <StyledPost>
       <Header>
-        <Time>{distanceInWordsToNow(date)} ago</Time>
+        <Time>{formatDistanceToNow(Date.parse(date))} ago</Time>
       </Header>
       <Main>
         <Body>{body}</Body>

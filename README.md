@@ -25,15 +25,6 @@ yarn start
 
 Api is located [here](https://github.com/malcodeman/confessions-server).
 
-## Todos
-
-- ~~Infinite scroll~~
-- ~~Dark mode~~
-- Ads
-- User accounts
-- Admin account
-- Comments
-
 ## License
 
 [MIT](./LICENSE)
